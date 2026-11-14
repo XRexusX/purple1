@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/mock-data.js"></script>
+    <script src="js/mock-api.js"></script>
+    <title>Purple One | Mi perfil</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="css/avatar.css">
+    <link rel="stylesheet" href="css/fx.css">
+</head>
+<body class="site-body">
+    <header class="navbar">
+    <div class="container-wide nav-content">
+        <a href="index.html" class="logo">PURPLE1</a>
+        <nav class="nav-links" aria-label="Navegacion principal">
+            <a href="index.html">Inicio</a>
+            <a href="teams.html">Equipos</a>
+            <a href="products.html">Tienda</a>
+            <a href="races.html">Pronosticos</a>
+        </nav>
+        <div class="nav-icons" aria-label="Accesos rapidos">
+            <a href="products.html" aria-label="Explorar productos"><i class="fa-solid fa-magnifying-glass"></i></a>
+            <div class="nav-user-menu">
+                <button type="button" class="nav-user-toggle active" aria-label="Mi cuenta" aria-expanded="false"><i class="fa-regular fa-user"></i></button>
+                <div class="nav-user-dropdown">
+                    <div class="nav-user-greeting">Mi cuenta</div>
+                    <a href="profile.html">Mi perfil</a>
+                    <a href="change_password.html">Cambiar contrasena</a>
+                    <a href="auth.html">Iniciar sesion</a>
+                </div>
+            </div>
+            <a href="cart.html" aria-label="Carrito"><i class="fa-solid fa-cart-shopping"></i></a>
+        </div>
+    </div>
+</header>
+    <main class="profile-page page-shell">
+        <div class="container">
+            <section class="profile-card surface-card">
+                <div class="profile-hero">
+                    <div class="profile-identity">
+                        <div class="profile-avatar" id="profile-avatar-mini">P1</div>
+                        <div>
+                            <h1>Mi perfil</h1>
+                            <p>Tu avatar, tus datos personales y de entrega.</p>
+                        </div>
+                    </div>
+                    <img src="img/car.png" class="profile-car" alt="Carro Purple One">
+                </div>
+
+                <section class="avatar-studio" id="avatar-studio" aria-labelledby="avatar-title">
+                    <div class="avatar-stage">
+                        <div class="avatar-stage__figure" id="avatar-figure"></div>
+                        <p class="avatar-stage__preview" id="avatar-preview-flag" hidden>Vista previa</p>
+                        <dl class="avatar-stats">
+                            <div>
+                                <dt>Pronosticos acertados</dt>
+                                <dd id="avatar-wins">0</dd>
+                            </div>
+                            <div>
+                                <dt>PitCoins</dt>
+                                <dd><i class="fa-solid fa-coins"></i> <span id="avatar-coins">0</span></dd>
+                            </div>
+                        </dl>
+                    </div>
+                    <div class="avatar-picker">
+                        <div class="avatar-picker__head">
+                            <h2 id="avatar-title">Mi avatar</h2>
+                            <p>Viste a tu piloto. Las prendas con candado se abren al acertar <a href="races.html">pronosticos</a>; las que tienen precio se compran con PitCoins.</p>
+                        </div>
+                        <div class="avatar-tabs" id="avatar-tabs" role="tablist" aria-label="Partes del avatar"></div>
+                        <div class="avatar-items" id="avatar-items"></div>
+                        <p class="avatar-status" id="avatar-status" role="status" aria-live="polite"></p>
+                    </div>
+                </section>
+
+                <div class="profile-info-banner"><span>i</span><p>Estos datos se usaran automaticamente en el checkout para agilizar tus compras.</p></div>
+                <form class="profile-form">
+                    <div class="profile-grid-wrapper">
+                        <div class="profile-section">
+                            <div class="profile-section-header"><h2>Datos de cuenta</h2></div>
+                            <div class="profile-grid">
+                                <div class="profile-field readonly"><label>Nombre</label><span>Usuario</span></div>
+                                <div class="profile-field readonly"><label>Apellido</label><span>Demo</span></div>
+                                <div class="profile-field readonly profile-field--full"><label>Correo electronico</label><span>demo@purpleone.com</span></div>
+                            </div>
+                        </div>
+                        <div class="profile-section">
+                            <div class="profile-section-header"><h2>Datos de entrega</h2></div>
+                            <div class="profile-grid">
+                                <div class="profile-field profile-field--full"><label>Telefono</label><input type="text" name="phone" placeholder="Agrega tu telefono"></div>
+                                <div class="profile-field profile-field--full"><label>Direccion</label><input type="text" name="address" placeholder="Agrega tu direccion"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="profile-actions"><a href="change_password.html" class="profile-link-btn">Cambiar contrasena</a><button type="submit" class="btn-primary">Guardar perfil</button></div>
+                </form>
+            </section>
+        </div>
+    </main>
+    <footer class="site-footer">
+    <div class="site-footer__glow site-footer__glow--left"></div>
+    <div class="site-footer__glow site-footer__glow--right"></div>
+    <div class="container site-footer__wrap">
+        <div class="site-footer__top">
+            <div class="site-footer__brand-block">
+                <a href="index.html" class="site-footer__logo" aria-label="Purple One">PURPLE1</a>
+                <p class="site-footer__copy">Purple One combina moda, velocidad y coleccionismo en una tienda con identidad visual premium inspirada en la Formula 1.</p>
+                <div class="site-footer__socials"><a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a><a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a><a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a></div>
+            </div>
+            <div class="site-footer__nav-group"><h3>Navegacion</h3><a href="index.html">Inicio</a><a href="teams.html">Equipos</a><a href="products.html">Tienda</a><a href="cart.html">Carrito</a></div>
+            <div class="site-footer__nav-group"><h3>Categorias</h3><a href="products.html">Ropa</a><a href="teams.html">Escuderias</a><a href="products.html">Coleccionables</a><a href="products.html">Accesorios</a></div>
+            <div class="site-footer__nav-group"><h3>Experiencia</h3><a href="#">Preguntas frecuentes</a><a href="#">Envios</a><a href="#">Cambios y devoluciones</a><a href="auth.html">Mi cuenta</a></div>
+        </div>
+        <div class="site-footer__bottom"><p>© 2026 Purple One. Todos los derechos reservados.</p><div class="site-footer__bottom-links"><a href="#">Terminos</a><a href="#">Privacidad</a><a href="#">Cookies</a></div></div>
+    </div>
+</footer>
+    <script src="js/navbar.js"></script>
+    <script src="js/avatar.js"></script>
+    <script src="js/profile.js"></script>
+    <script src="js/fx.js"></script>
+</body>
+</html>

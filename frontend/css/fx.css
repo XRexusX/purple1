@@ -1,0 +1,75 @@
+/* Efectos del cursor: halo morado + brillo en tarjetas.
+   Todo es decorativo: no bloquea clics (pointer-events: none) y se apaga
+   solo en pantallas tactiles o si el sistema pide menos movimiento. */
+.fx-halo {
+    position: fixed;
+    pointer-events: none;
+    z-index: 9990;
+}
+
+.fx-halo {
+    --fx-hue: 268;
+    top: 0;
+    left: 0;
+    width: 460px;
+    height: 460px;
+    margin: -230px 0 0 -230px;
+    border-radius: 50%;
+    background: radial-gradient(circle, hsla(var(--fx-hue), 100%, 62%, 0.2) 0%, hsla(var(--fx-hue), 100%, 62%, 0.08) 38%, transparent 68%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    will-change: transform;
+}
+
+.fx-halo.is-on {
+    opacity: 1;
+}
+
+/* Sobre fondos oscuros (login, intro) el halo se suma a la luz en vez de tenir. */
+.auth-body .fx-halo,
+.intro-on .fx-halo {
+    mix-blend-mode: screen;
+    background: radial-gradient(circle, hsla(var(--fx-hue), 100%, 66%, 0.32) 0%, hsla(var(--fx-hue), 100%, 60%, 0.1) 40%, transparent 68%);
+}
+
+/* Brillo que sigue al cursor dentro de las tarjetas */
+.product-card,
+.team-card,
+.category-card,
+.race-card {
+    --fx-x: 50%;
+    --fx-y: 50%;
+}
+
+.category-card,
+.race-card,
+.team-card {
+    position: relative;
+}
+
+.fx-ready .product-card::after,
+.fx-ready .team-card::after,
+.fx-ready .category-card::after,
+.fx-ready .race-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(260px circle at var(--fx-x) var(--fx-y), rgba(123, 44, 255, 0.16), rgba(255, 95, 210, 0.07) 45%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    pointer-events: none;
+}
+
+.fx-ready .product-card:hover::after,
+.fx-ready .team-card:hover::after,
+.fx-ready .category-card:hover::after,
+.fx-ready .race-card:hover::after {
+    opacity: 1;
+}
+
+.fx-ready .product-card:hover,
+.fx-ready .team-card:hover,
+.fx-ready .category-card:hover {
+    border-color: #c9b0ff;
+}

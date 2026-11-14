@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/mock-data.js"></script>
+    <script src="js/mock-api.js"></script>
+    <title>Purple One</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/intro.css">
+    <script>
+        /* Intro: se muestra una vez por visita (o siempre con index.html?intro=1).
+           Se decide aqui, antes de pintar la pagina, para que la tienda no parpadee. */
+        (function () {
+            try {
+                var forced = /[?&]intro=1/.test(location.search);
+                var seen = sessionStorage.getItem("purple1_intro_seen");
+                var calm = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+                if (forced || (!seen && !calm)) document.documentElement.classList.add("intro-on");
+            } catch (error) { /* sin intro */ }
+        })();
+    </script>
+    <link rel="stylesheet" href="css/fx.css">
+</head>
+<body class="site-body">
+    <div class="p1-intro" id="p1-intro" role="region" aria-label="Intro de Purple1">
+        <canvas class="p1-intro__canvas" aria-hidden="true"></canvas>
+        <img class="p1-intro__fallback" src="img/car.png" alt="" aria-hidden="true">
+        <div class="p1-intro__streaks" aria-hidden="true"></div>
+        <div class="p1-intro__top">
+            <span class="p1-intro__brand">PURPLE1</span>
+            <div class="p1-intro__lights" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+            <button type="button" class="p1-intro__skip">Saltar intro</button>
+        </div>
+        <div class="p1-intro__lines">
+            <div class="p1-intro__line" data-from="0" data-to="0.22">
+                <h2>La velocidad es morada</h2>
+                <p>Purple1, la tienda de merch de Formula 1.</p>
+            </div>
+            <div class="p1-intro__line" data-from="0.28" data-to="0.48">
+                <h2>Viste a tu escuderia</h2>
+                <p>Hoodies, gorras y coleccionables de los equipos.</p>
+            </div>
+            <div class="p1-intro__line" data-from="0.54" data-to="0.76">
+                <h2>Pronostica cada Gran Premio</h2>
+                <p>Acierta al ganador, suma PitCoins y desbloquea ropa para tu avatar.</p>
+            </div>
+            <div class="p1-intro__line" data-from="0.82" data-to="2">
+                <h2>Luces fuera</h2>
+                <p>Sigue bajando para entrar a la tienda.</p>
+            </div>
+        </div>
+        <div class="p1-intro__hint" aria-hidden="true"><i></i>Desliza para arrancar</div>
+    </div>
+    <div class="p1-intro-track" id="p1-intro-track" aria-hidden="true"></div>
+    <header class="navbar">
+    <div class="container-wide nav-content">
+        <a href="index.html" class="logo">PURPLE1</a>
+        <nav class="nav-links" aria-label="Navegacion principal">
+            <a href="index.html" class="active">Inicio</a>
+            <a href="teams.html">Equipos</a>
+            <a href="products.html">Tienda</a>
+            <a href="races.html">Pronosticos</a>
+        </nav>
+        <div class="nav-icons" aria-label="Accesos rapidos">
+            <a href="products.html" aria-label="Explorar productos"><i class="fa-solid fa-magnifying-glass"></i></a>
+            <div class="nav-user-menu">
+                <button type="button" class="nav-user-toggle" aria-label="Mi cuenta" aria-expanded="false"><i class="fa-regular fa-user"></i></button>
+                <div class="nav-user-dropdown">
+                    <div class="nav-user-greeting">Mi cuenta</div>
+                    <a href="profile.html">Mi perfil</a>
+                    <a href="change_password.html">Cambiar contrasena</a>
+                    <a href="auth.html">Iniciar sesion</a>
+                </div>
+            </div>
+            <a href="cart.html" aria-label="Carrito"><i class="fa-solid fa-cart-shopping"></i></a>
+        </div>
+    </div>
+</header>
+    <main>
+    <section class="hero hero-home"><div class="container-wide hero-content"><div class="hero-text"><h1>LA LIGA DONDE LA <span>VELOCIDAD ES MORADA</span></h1><p>Sigue todas las carreras, pilotos y equipos del campeonato mas futurista.</p><a href="products.html" class="btn-primary hero-cta">Explorar tienda</a></div><div class="hero-image"><img src="img/car.png" alt="Carro Formula 1 morado"></div></div></section>
+    <section class="section products-section"><div class="container-wide"><h2 class="section-title">Destacados de <span>Purple1</span></h2><div class="products-grid featured-grid"><article class="product-card">
+        <span class="badge top-badge">Destacado</span>
+        <div class="product-image"><img src="img/hoodie-leclerc.jpeg" alt="Hoodie Leclerc"></div>
+        <div class="product-info"><h3>Hoodie Leclerc</h3><p class="price" data-price-eur="89.90">EUR 89,90</p><a href="product_detail.html?slug=hoodie-leclerc" class="btn-card">Ver producto</a></div>
+    </article>
+<article class="product-card">
+        <span class="badge top-badge">Destacado</span>
+        <div class="product-image"><img src="img/sweater-redbull.jpeg" alt="Hoodie Red Bull"></div>
+        <div class="product-info"><h3>Hoodie Red Bull</h3><p class="price" data-price-eur="92.90">EUR 92,90</p><a href="product_detail.html?slug=hoodie-red-bull" class="btn-card">Ver producto</a></div>
+    </article>
+<article class="product-card">
+        <span class="badge top-badge">Destacado</span>
+        <div class="product-image"><img src="img/polo-ferrari.jpeg" alt="Camiseta Ferrari Race Day"></div>
+        <div class="product-info"><h3>Camiseta Ferrari Race Day</h3><p class="price" data-price-eur="44.90">EUR 44,90</p><a href="product_detail.html?slug=camiseta-ferrari-race-day" class="btn-card">Ver producto</a></div>
+    </article>
+<article class="product-card">
+        <span class="badge top-badge">Destacado</span>
+        <div class="product-image"><img src="img/shirt-mercedes.jpeg" alt="Camiseta Mercedes Pitwall"></div>
+        <div class="product-info"><h3>Camiseta Mercedes Pitwall</h3><p class="price" data-price-eur="46.90">EUR 46,90</p><a href="product_detail.html?slug=camiseta-mercedes-pitwall" class="btn-card">Ver producto</a></div>
+    </article></div></div></section>
+    <section class="section categories-section"><div class="container-wide"><h2 class="section-title">Explora por <span>Categorias</span></h2><div class="categories-grid"><article class="category-card surface-card"><img src="img/ropa.png" alt="Ropa"><span>Ropa</span></article><article class="category-card surface-card"><img src="img/accesorios.png" alt="Accesorios"><span>Accesorios</span></article><article class="category-card surface-card"><img src="img/escuderia.png" alt="Escuderias"><span>Escuderias</span></article><article class="category-card surface-card"><img src="img/coleccionables.png" alt="Coleccionables"><span>Coleccionables</span></article></div></div></section>
+    <section class="section best-sellers-section"><div class="container-wide"><h2 class="section-title">Lo Mas Vendido</h2><div class="products-grid products-grid-three"><article class="product-card">
+        <span class="badge top-badge">Destacado</span>
+        <div class="product-image"><img src="img/hoodie-leclerc.jpeg" alt="Hoodie Leclerc"></div>
+        <div class="product-info"><h3>Hoodie Leclerc</h3><p class="price" data-price-eur="89.90">EUR 89,90</p><a href="product_detail.html?slug=hoodie-leclerc" class="btn-card">Ver producto</a></div>
+    </article>
+<article class="product-card">
+        <span class="badge top-badge">Destacado</span>
+        <div class="product-image"><img src="img/sweater-redbull.jpeg" alt="Hoodie Red Bull"></div>
+        <div class="product-info"><h3>Hoodie Red Bull</h3><p class="price" data-price-eur="92.90">EUR 92,90</p><a href="product_detail.html?slug=hoodie-red-bull" class="btn-card">Ver producto</a></div>
+    </article>
+<article class="product-card">
+        
+        <div class="product-image"><img src="img/polo-ferrari.jpeg" alt="Camiseta Ferrari Race Day"></div>
+        <div class="product-info"><h3>Camiseta Ferrari Race Day</h3><p class="price" data-price-eur="44.90">EUR 44,90</p><a href="product_detail.html?slug=camiseta-ferrari-race-day" class="btn-card">Ver producto</a></div>
+    </article>
+<article class="product-card">
+        
+        <div class="product-image"><img src="img/shirt-mercedes.jpeg" alt="Camiseta Mercedes Pitwall"></div>
+        <div class="product-info"><h3>Camiseta Mercedes Pitwall</h3><p class="price" data-price-eur="46.90">EUR 46,90</p><a href="product_detail.html?slug=camiseta-mercedes-pitwall" class="btn-card">Ver producto</a></div>
+    </article>
+<article class="product-card">
+        <span class="badge top-badge">Destacado</span>
+        <div class="product-image"><img src="img/cap-maclaren.jpeg" alt="Gorra McLaren Apex"></div>
+        <div class="product-info"><h3>Gorra McLaren Apex</h3><p class="price" data-price-eur="29.90">EUR 29,90</p><a href="product_detail.html?slug=gorra-mclaren-apex" class="btn-card">Ver producto</a></div>
+    </article>
+<article class="product-card">
+        
+        <div class="product-image"><img src="img/cap-redbull.jpeg" alt="Gorra Red Bull Champion"></div>
+        <div class="product-info"><h3>Gorra Red Bull Champion</h3><p class="price" data-price-eur="31.90">EUR 31,90</p><a href="product_detail.html?slug=gorra-red-bull-champion" class="btn-card">Ver producto</a></div>
+    </article>
+<article class="product-card">
+        <span class="badge top-badge">Destacado</span>
+        <div class="product-image"><img src="img/sack-redbull.jpeg" alt="Mochila Racing Travel"></div>
+        <div class="product-info"><h3>Mochila Racing Travel</h3><p class="price" data-price-eur="64.90">EUR 64,90</p><a href="product_detail.html?slug=mochila-racing-travel" class="btn-card">Ver producto</a></div>
+    </article>
+<article class="product-card">
+        <span class="badge top-badge">Destacado</span>
+        <div class="product-image"><img src="img/carro-redbull.jpeg" alt="Miniatura F1 Ferrari SF-24"></div>
+        <div class="product-info"><h3>Miniatura F1 Ferrari SF-24</h3><p class="price" data-price-eur="59.90">EUR 59,90</p><a href="product_detail.html?slug=miniatura-f1-ferrari-sf-24" class="btn-card">Ver producto</a></div>
+    </article>
+<article class="product-card">
+        
+        <div class="product-image"><img src="img/placeholder-product.png" alt="Poster Formula 1 Night Race"></div>
+        <div class="product-info"><h3>Poster Formula 1 Night Race</h3><p class="price" data-price-eur="19.90">EUR 19,90</p><a href="product_detail.html?slug=poster-formula-1-night-race" class="btn-card">Ver producto</a></div>
+    </article>
+<article class="product-card">
+        
+        <div class="product-image"><img src="img/polo-mercedez.jpeg" alt="Pack Escuderia Mercedes"></div>
+        <div class="product-info"><h3>Pack Escuderia Mercedes</h3><p class="price" data-price-eur="74.90">EUR 74,90</p><a href="product_detail.html?slug=pack-escuderia-mercedes" class="btn-card">Ver producto</a></div>
+    </article>
+<article class="product-card">
+        
+        <div class="product-image"><img src="img/cap-maclaren.jpeg" alt="Pack Escuderia McLaren"></div>
+        <div class="product-info"><h3>Pack Escuderia McLaren</h3><p class="price" data-price-eur="72.90">EUR 72,90</p><a href="product_detail.html?slug=pack-escuderia-mclaren" class="btn-card">Ver producto</a></div>
+    </article>
+<article class="product-card">
+        <span class="badge top-badge">Destacado</span>
+        <div class="product-image"><img src="img/carro-redbull.jpeg" alt="Miniatura Red Bull RB20"></div>
+        <div class="product-info"><h3>Miniatura Red Bull RB20</h3><p class="price" data-price-eur="61.90">EUR 61,90</p><a href="product_detail.html?slug=miniatura-red-bull-rb20" class="btn-card">Ver producto</a></div>
+    </article></div></div></section>
+</main>
+    <footer class="site-footer">
+    <div class="site-footer__glow site-footer__glow--left"></div>
+    <div class="site-footer__glow site-footer__glow--right"></div>
+    <div class="container site-footer__wrap">
+        <div class="site-footer__top">
+            <div class="site-footer__brand-block">
+                <a href="index.html" class="site-footer__logo" aria-label="Purple One">PURPLE1</a>
+                <p class="site-footer__copy">Purple One combina moda, velocidad y coleccionismo en una tienda con identidad visual premium inspirada en la Formula 1.</p>
+                <div class="site-footer__socials"><a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a><a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a><a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a></div>
+            </div>
+            <div class="site-footer__nav-group"><h3>Navegacion</h3><a href="index.html">Inicio</a><a href="teams.html">Equipos</a><a href="products.html">Tienda</a><a href="cart.html">Carrito</a></div>
+            <div class="site-footer__nav-group"><h3>Categorias</h3><a href="products.html">Ropa</a><a href="teams.html">Escuderias</a><a href="products.html">Coleccionables</a><a href="products.html">Accesorios</a></div>
+            <div class="site-footer__nav-group"><h3>Experiencia</h3><a href="#">Preguntas frecuentes</a><a href="#">Envios</a><a href="#">Cambios y devoluciones</a><a href="auth.html">Mi cuenta</a></div>
+        </div>
+        <div class="site-footer__bottom"><p>© 2026 Purple One. Todos los derechos reservados.</p><div class="site-footer__bottom-links"><a href="#">Terminos</a><a href="#">Privacidad</a><a href="#">Cookies</a></div></div>
+    </div>
+</footer>
+    <script src="js/currency.js"></script>
+    <script src="js/navbar.js"></script>
+    <script src="js/intro.js"></script>
+    <script src="js/fx.js"></script>
+</body>
+</html>

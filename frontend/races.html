@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/mock-data.js"></script>
+    <script src="js/mock-api.js"></script>
+    <title>Pronosticos | Purple One</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="css/races.css">
+    <link rel="stylesheet" href="css/fx.css">
+</head>
+<body class="site-body">
+    <header class="navbar">
+        <div class="container-wide nav-content">
+            <a href="index.html" class="logo">PURPLE1</a>
+            <nav class="nav-links" aria-label="Navegacion principal">
+                <a href="index.html">Inicio</a>
+                <a href="teams.html">Equipos</a>
+                <a href="products.html">Tienda</a>
+                <a href="races.html" class="active">Pronosticos</a>
+            </nav>
+            <div class="nav-icons" aria-label="Accesos rapidos">
+                <a href="products.html" aria-label="Explorar productos"><i class="fa-solid fa-magnifying-glass"></i></a>
+                <div class="nav-user-menu">
+                    <button type="button" class="nav-user-toggle" aria-label="Mi cuenta" aria-expanded="false"><i class="fa-regular fa-user"></i></button>
+                    <div class="nav-user-dropdown">
+                        <div class="nav-user-greeting">Mi cuenta</div>
+                        <a href="auth.html">Iniciar sesion</a>
+                    </div>
+                </div>
+                <a href="cart.html" aria-label="Carrito"><i class="fa-solid fa-cart-shopping"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <main class="races-page page-shell">
+        <div class="container">
+            <section class="races-hero">
+                <div class="races-hero__text">
+                    <span class="pill-badge is-soft"><i class="fa-solid fa-flag-checkered"></i>&nbsp; Pronosticos Purple1</span>
+                    <h1>Pronostica quien gana <span>cada Gran Premio</span></h1>
+                    <p>Elige a tu piloto, compite por el primer lugar del ranking y desbloquea ropa para tu avatar con cada acierto. Se juega con <strong>PitCoins</strong>, la moneda virtual de Purple1: sin dinero real, sin riesgo, solo la emocion de acertar.</p>
+                </div>
+                <div class="wallet-card surface-card" id="wallet-card">
+                    <div class="wallet-card__label">Tu saldo</div>
+                    <div class="wallet-card__amount"><i class="fa-solid fa-coins"></i> <span id="wallet-amount">--</span></div>
+                    <p class="wallet-card__hint" id="wallet-hint">Inicia sesion para recibir tus primeros 1000 PitCoins.</p>
+                </div>
+            </section>
+
+            <section class="how-it-works surface-card">
+                <div><i class="fa-solid fa-circle-info"></i></div>
+                <p><strong>Como funciona:</strong> las cuotas se calculan en vivo repartiendo el bote entre los PitCoins puestos en cada piloto (estilo mercado de prediccion): entre menos gente elija a tu piloto, mayor la ganancia si acierta. Un pronostico por carrera; puedes cambiarlo mientras sigan abiertos. Cada acierto cuenta para desbloquear prendas en <a href="profile.html">tu avatar</a>.</p>
+            </section>
+
+            <section class="section-heading">
+                <h2 class="section-title">Proximas <span>carreras</span></h2>
+            </section>
+            <section class="races-list" id="races-list">
+                <div class="surface-card empty-products"><h3>Cargando carreras</h3><p>Consultando el calendario desde el servidor.</p></div>
+            </section>
+
+            <section class="section-heading">
+                <h2 class="section-title">Tabla de <span>posiciones</span></h2>
+            </section>
+            <section class="surface-card leaderboard-card">
+                <ol class="leaderboard-list" id="leaderboard-list">
+                    <li class="leaderboard-empty">Cargando ranking...</li>
+                </ol>
+            </section>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="site-footer__glow site-footer__glow--left"></div>
+        <div class="site-footer__glow site-footer__glow--right"></div>
+        <div class="container site-footer__wrap">
+            <div class="site-footer__top">
+                <div class="site-footer__brand-block">
+                    <a href="index.html" class="site-footer__logo" aria-label="Purple One">PURPLE1</a>
+                    <p class="site-footer__copy">Purple One combina moda, velocidad y coleccionismo en una tienda con identidad visual premium inspirada en la Formula 1.</p>
+                    <div class="site-footer__socials"><a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a><a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a><a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a></div>
+                </div>
+                <div class="site-footer__nav-group"><h3>Navegacion</h3><a href="index.html">Inicio</a><a href="teams.html">Equipos</a><a href="products.html">Tienda</a><a href="races.html">Pronosticos</a></div>
+                <div class="site-footer__nav-group"><h3>Pronosticos</h3><a href="races.html">Proximos GP</a><a href="races.html">Como funciona</a><a href="profile.html">Mi avatar</a></div>
+                <div class="site-footer__nav-group"><h3>Experiencia</h3><a href="#">Preguntas frecuentes</a><a href="#">Envios</a><a href="#">Cambios y devoluciones</a><a href="auth.html">Mi cuenta</a></div>
+            </div>
+            <div class="site-footer__bottom"><p>&copy; 2026 Purple One. Todos los derechos reservados. Los PitCoins no tienen valor monetario real.</p><div class="site-footer__bottom-links"><a href="#">Terminos</a><a href="#">Privacidad</a><a href="#">Cookies</a></div></div>
+        </div>
+    </footer>
+
+    <script src="js/navbar.js"></script>
+    <script src="js/races.js"></script>
+    <script src="js/fx.js"></script>
+</body>
+</html>

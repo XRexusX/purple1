@@ -1,0 +1,27 @@
+﻿/* Equipos: hero simple y grid de escuderias */
+.teams-page {
+    min-height: calc(100vh - 160px);
+}
+
+.teams-hero {
+    text-align: center;
+    margin: 12px 0 40px;
+}
+
+.teams-hero h1 {
+    font-size: var(--fs-page-title);
+    margin-bottom: 12px;
+}
+
+.teams-hero span {
+    color: var(--color-brand);
+}
+
+.teams-hero p {
+    color: var(--color-text-soft);
+}
+
+/* Solo layout del grid, la card base vive en global.css */
+.teams-grid {
+    gap: 24px;
+}

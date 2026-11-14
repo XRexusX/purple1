@@ -1,0 +1,367 @@
+/* Pronosticos: hero con cartera, listado de GPs y ranking */
+.races-page {
+    min-height: calc(100vh - 160px);
+}
+
+.races-hero {
+    display: grid;
+    grid-template-columns: 1.5fr 0.9fr;
+    gap: 28px;
+    align-items: center;
+    margin: 12px 0 28px;
+}
+
+.races-hero__text h1 {
+    font-size: var(--fs-page-title);
+    margin: 14px 0 12px;
+}
+
+.races-hero__text h1 span {
+    color: var(--color-brand);
+}
+
+.races-hero__text p {
+    color: var(--color-text-soft);
+    max-width: 60ch;
+}
+
+.wallet-card {
+    padding: 26px 28px;
+    text-align: center;
+    background: linear-gradient(135deg, #2a1259 0%, #6f2cff 100%);
+    border: none;
+    color: #fff;
+}
+
+.wallet-card__label {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    opacity: 0.85;
+}
+
+.wallet-card__amount {
+    font-size: 2.4rem;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 8px 0;
+}
+
+.wallet-card__amount i {
+    color: #ffd166;
+}
+
+.wallet-card__hint {
+    font-size: 0.9rem;
+    opacity: 0.85;
+}
+
+.how-it-works {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 20px 24px;
+    margin-bottom: 36px;
+    color: #4e4765;
+}
+
+.how-it-works i {
+    color: var(--color-brand);
+    font-size: 1.3rem;
+    margin-top: 2px;
+}
+
+/* Listado de carreras */
+.races-list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-bottom: 48px;
+}
+
+.race-card {
+    padding: 26px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 20px;
+}
+
+.race-card__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    grid-column: 1 / -1;
+}
+
+.race-card__title h3 {
+    font-size: 1.3rem;
+    margin-bottom: 4px;
+}
+
+.race-card__title p {
+    color: var(--color-text-soft);
+    font-size: 0.95rem;
+}
+
+.race-status {
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+}
+
+.race-status.OPEN { background: var(--color-success-soft); color: var(--color-success); }
+.race-status.SCHEDULED { background: #eef0f5; color: #6a6f80; }
+.race-status.LOCKED { background: #fff3d6; color: #a7710a; }
+.race-status.FINISHED { background: var(--color-brand-soft); color: var(--color-brand-strong); }
+.race-status.CANCELLED { background: #fde3e8; color: var(--color-danger); }
+
+.race-pool {
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
+.race-options {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 14px;
+}
+
+.race-option {
+    position: relative;
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    background: var(--color-surface-alt);
+    transition: border-color 0.2s ease, transform 0.15s ease;
+    overflow: hidden;
+}
+
+.race-option:hover {
+    transform: translateY(-2px);
+}
+
+.race-option.selected {
+    border-color: var(--color-brand);
+    background: var(--color-brand-tint);
+}
+
+.race-option.is-winner {
+    border-color: var(--color-success);
+    background: var(--color-success-soft);
+}
+
+.race-option img {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: #fff;
+    flex-shrink: 0;
+}
+
+.race-option__info {
+    flex: 1;
+    min-width: 0;
+}
+
+.race-option__info strong {
+    display: block;
+    font-size: 0.92rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.race-option__odds {
+    font-size: 0.82rem;
+    color: var(--color-text-muted);
+}
+
+.race-option__odds b {
+    color: var(--color-brand-strong);
+}
+
+.race-option__pool-bar {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    background: var(--color-brand);
+    opacity: 0.6;
+}
+
+.race-bet-panel {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    padding-top: 6px;
+    border-top: 1px solid var(--color-border);
+    margin-top: 6px;
+    padding-top: 18px;
+}
+
+.race-bet-panel input[type="number"] {
+    width: 140px;
+    height: 48px;
+    border: 1px solid #ddd5ea;
+    border-radius: var(--radius-sm);
+    padding: 0 16px;
+    font-size: 1rem;
+    color: var(--color-text);
+}
+
+.race-bet-panel .btn-primary {
+    min-width: 160px;
+}
+
+.race-bet-panel__note {
+    color: var(--color-text-muted);
+    font-size: 0.88rem;
+    flex-basis: 100%;
+}
+
+.race-bet-panel__note.error { color: var(--color-danger); font-weight: 600; }
+.race-bet-panel__note.success { color: var(--color-success); font-weight: 600; }
+
+.race-card--locked .race-option,
+.race-card--finished .race-option {
+    cursor: default;
+    opacity: 0.85;
+}
+
+/* Ranking */
+.leaderboard-card {
+    padding: 8px 0;
+    margin-bottom: 12px;
+}
+
+.leaderboard-list {
+    list-style: none;
+    counter-reset: rank;
+}
+
+.leaderboard-list li {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 14px 28px;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.leaderboard-list li:last-child {
+    border-bottom: none;
+}
+
+.leaderboard-rank {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    background: var(--color-brand-soft);
+    color: var(--color-brand-strong);
+    flex-shrink: 0;
+}
+
+.leaderboard-list li:nth-child(1) .leaderboard-rank { background: #ffd166; color: #7a5200; }
+.leaderboard-list li:nth-child(2) .leaderboard-rank { background: #e3e6ee; color: #545a6b; }
+.leaderboard-list li:nth-child(3) .leaderboard-rank { background: #f0c9a4; color: #7a4413; }
+
+.leaderboard-name {
+    flex: 1;
+    font-weight: 600;
+}
+
+.leaderboard-coins {
+    font-weight: 800;
+    color: var(--color-brand-strong);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.leaderboard-empty {
+    padding: 24px 28px;
+    color: var(--color-text-soft);
+    justify-content: center;
+}
+
+@media (max-width: 900px) {
+    .races-hero {
+        grid-template-columns: 1fr;
+    }
+
+    .race-card {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Panel de staff: cerrar una carrera indicando el ganador */
+.race-staff {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: end;
+    gap: 12px;
+    padding-top: 16px;
+    border-top: 1px dashed var(--color-border);
+}
+
+.race-staff label {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--color-text-soft);
+}
+
+.race-staff select {
+    min-width: 220px;
+    height: 44px;
+    padding: 0 12px;
+    border-radius: 10px;
+    border: 1px solid var(--color-border);
+    background: var(--color-surface);
+    color: var(--color-text);
+}
+
+.race-staff__settle {
+    height: 44px;
+    padding: 0 18px;
+    border-radius: 10px;
+    border: 1px solid var(--color-text);
+    background: var(--color-surface);
+    color: var(--color-text);
+    font-weight: 700;
+}
+
+.race-staff__settle:hover {
+    background: var(--color-text);
+    color: #fff;
+}
+
+.how-it-works a {
+    color: var(--color-brand);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
